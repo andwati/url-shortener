@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="pico.min.css">
-    <script src="htmx.min.js"></script>
     <title>URL shortener</title>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+    <link rel="stylesheet" href="/static/pico.min.css">
+    <script src="/static/htmx.min.js"></script>
 </head>
-
 <body>
-    <main class="container-fluid">
-      <nav>
-        <ul><li><strong>Link shortener</strong></li></ul>
-        <ul>
+    <main class="container">
+        <h1>URL shortener</h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/stats" hx-get="/stats" hx-push-url="true" hx-target="main">Stats</a></li>
+            </ul>
+
+            <ul>
            
-            <li>
-                <details class="dropdown">
-                    <summary>
-                        Account
-                    </summary>
-                    <ul dir="rtl">
-                        <li><a href="">Profile</a></li>
-                        <li><a href="">Settings</a></li>
-                        <li><a href="">Security</a></li>
-                        <li><a href="">Logout</a></li>
-                    </ul>
-                </details>
-            </li>
-        </ul>
-      </nav>
+                <li>
+                    <details class="dropdown">
+                        <summary>
+                            Account
+                        </summary>
+                        <ul dir="rtl">
+                            <li><a href="">Profile</a></li>
+                            <li><a href="">Settings</a></li>
+                            <li><a href="">Security</a></li>
+                            <li><a href="">Logout</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+   
 
-        <section class="container">
+    <section>
+               <form hx-post="/shorten" hx-target="#result-container" hx-swap="innerHTML" >
+            <fieldset role="group">
+                <input type="url" name="url" id="url" placeholder="https://example.com/long/url" required>
+                <button type="submit">Shorten</button>
+            </fieldset>
+        </form>
+        <div class="result-container">
 
-            <form action="">
-                <fieldset role="group">
-                    <input type="text" name="" id="">
-                    <button type="submit">Shorten</button>
-                </fieldset>
-            </form>
-
-            <div>
-                <input type="text">
-                <button>copy</button>
-            </div>
-        </section>
-    </main>
-    <footer class="container-fluid">
-     <small>footer</small>
-    </footer>
+        </div>
+    </section>
+</main>
+<footer class="container">
+    <small>Powered by <a href="https://github.com/andwati/url-shortener" target="_blank">URL Shortener</a></small>
+</footer>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function(){
+                alert('URL copied to clipboard!');
+            }, function(err){
+                console.error('Could not copy text: ', err)
+            }
+        
+        )
+            
+        }
+    </script>
 </body>
-
 </html>

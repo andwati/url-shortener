@@ -1,0 +1,148 @@
+:root{
+    --primary-color: #1095c1;
+    --secondary-color: #98c1d9;
+    --accent-color: #3d5a80;
+    --background-color: #f8f9fa;
+    --text-color:#293242;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+min-height: 100vh;
+background-color: var(--background-color);
+color: var(--text-color);
+}
+
+main{
+    flex: 1;
+    padding: 2rem 0;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+nav{
+    margin-bottom: 2rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li{
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a.active{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+form{
+    margin-bottom: 2rem;
+}
+
+.shorten-btn{
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.shorten-btn:hover{
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.result-container{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.result-container a{
+    color: var(--primary-color);
+    word-break: break-all;
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.copy-btn{
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-color)
+}
+
+.copy-btn:hover{
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.stats-container{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tab th, table td{
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+table th{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+table tr:hover{
+    background-color: rgba(152, 193, 217, 0.1);
+}
+
+.loading{
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+footer{
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    background-color: white;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .grid{
+        grid-template-columns: 1fr;
+    }
+
+    nav ul li {
+        margin: 0 0.5rem;
+    }
+    
+}
